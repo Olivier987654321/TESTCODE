@@ -1,0 +1,40 @@
+Etapes préparations environnement de travail : 
+
+1- Créer un dossier sur le bureau avec le nom du projet ("Automatisation_Hariboo_Prénom")
+2- Ouvrir VS Code et glisser le dossier dans la page principale
+
+3- Lancer le terminal et choisir "Git Bash"
+4- Lancer les commandes suivantes :
+npm install cypress
+npm init (à cette étape remplir les champs puis cliquer sur Entrer à chaque fois jusqu'à la fin)
+npx cypress open (Au lancement du navigateur suivre les étapes pour la création des fichiers config)
+
+5- Installer le plugin "cypress-mochawesome-reporter" pour les rapports  via le lien https://www.npmjs.com/package/cypress-mochawesome-reporter :
+5.1) Exécuter la commande sur le terminal :
+npm i cypress-mochawesome-reporter
+
+5.2) Remplacer le contenu du fichier cypress.config.js par le texte suivant :
+
+const { defineConfig } = require('cypress');
+
+module.exports = defineConfig({
+  reporter: 'cypress-mochawesome-reporter',
+  e2e: {
+    setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on);
+    },
+  },
+}); 
+ 
+5.3) Ajouter la ligne suivante au fichier cypress/support/e2e.js :
+import 'cypress-mochawesome-reporter/register';
+
+5.4) Vérifier qu'une ligne a été rajouté pour le plugin à la fin du fichier package.json sous la racine :
+Exemple pour mon fichier (ligne 11 à 13 ): 
+ "dependencies": {
+    "cypress-mochawesome-reporter": "^3.8.2"
+  }
+
+6- Créer un dossier POM sous la racine cypress
+
+

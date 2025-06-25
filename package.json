@@ -1,0 +1,14 @@
+{
+  "name": "automatisation_haribo_olivier",
+  "version": "1.0.0",
+  "description": "npm install cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress-mochawesome-reporter": "^3.8.2"
+  }
+}
